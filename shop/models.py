@@ -11,7 +11,7 @@ class Category(models.Model):
     name=models.CharField(max_length=150,null=False,blank=False)
     image=models.ImageField(upload_to=getFileName,null=True,blank=True)
     description=models.TextField(max_length=500,null=False,blank=False)
-    status=models.BooleanField(default=False,help_text="0-default,Hidden")
+    status=models.BooleanField(default=False,help_text="0-default,1-Hidden")
     created_at=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

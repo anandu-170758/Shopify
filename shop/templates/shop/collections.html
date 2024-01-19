@@ -27,9 +27,10 @@
                <hr style="border-color: #b8bfc2;">
             </div>
          {% for item in category %}
-          <div class="col-md-4 col-lg-3">
+        <!-- item.image.url ==>  images/uploads/2022hbksjdfdsf.jpg -->
+          <div class="col-md-4 col-lg-3"> 
             <div class="card my-3">
-              <img src="{{item.image.url}}" class="card-image-top" alt="Categories">
+              <img src="../../../static{{item.image.url}}" class="card-image-top" alt="Categories">
               <div class="card-body">
                 <h5 class="card-title text-primary">{{ item.name }}</h5>
                 <p class="card-text">{{item.description}}</p>
