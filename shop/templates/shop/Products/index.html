@@ -8,16 +8,25 @@ ShopKart | Online Shopping
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h4 class="mb-3">{{category_name}} Products</h4>
+        <h4 class="mb-3">{{ category_name }} Products</h4>
         <hr style="border-color:#b8bfc2;">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="breadcrumb-item active">{{category_name}} Collections</li>
-          </ol>
-        </nav>
       </div>
-      
+      {% for item in products %}
+      <div class="col-md-4 col-lg-3">
+        <div class="card my-3">
+          <img src="{{ item.product_image.url }}"  class="card-image-top" alt="Categories">
+          <a href="{%url 'collections' item.name %}">
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ item.name }}</h5>
+            <p class="card-text">
+              <span class="float-start">{{ item.orginal_price }}</span> 
+              <span class="float-end">{{ item.selling_price }}</span> 
+            </p>  
+          </div>
+        </a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
