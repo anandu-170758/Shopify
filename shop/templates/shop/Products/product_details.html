@@ -1,0 +1,21 @@
+{% extends 'shop/Layout/Main.html' %}
+{% block title %}
+ShopKart | Online Shopping
+{% endblock title %}
+
+{% block content %}
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+  <div class="container">
+     <div class="row">
+       <div class="col-12">
+        <h4 class="mb-3">{{products}} Details</h4>
+        <hr style="border-color:#b8bfc2;">
+       </div>
+       <div class="col-4 my-3">
+        <img src="{{products.product_image.url}}" class="card-image-top" alt="products">
+       
+     </div>
+  </div>
+</section>
+ 
+{% endblock content %}
