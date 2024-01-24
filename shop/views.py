@@ -1,15 +1,30 @@
 from django.shortcuts import render,redirect
+from shop.form import CustomUserForm
 from . models import*
 from django.contrib import messages
 
 
 def home(request):
-    return render(request,"shop/index.html")
+  products=Product.objects.filter(trending=1)
+  return render(request,"shop/index.html",{"products":products})
+
+def login(request):
+  return render(request,"shop/login.html",)
+
 def register(request):
-    return render(request,"shop/register.html")
+    form=CustomUserForm
+    if request.method=='POST':
+       form=CustomUserForm(request.POST)
+       if form.is_valid():
+          form.save()
+          messages.success(request,"Registration Success You can Login Now..!")
+          return redirect('/login')
+    return render(request,"shop/register.html",{'form':form})
+
 def collections(request):
     category=Category.objects.filter(status=0)
     return render(request,"shop/collections.html",{"category":category})
+
 def collectionsview(request,name):
   if(Category.objects.filter(name=name,status=0)):
       products=Product.objects.filter(category__name=name)
