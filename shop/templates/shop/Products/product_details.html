@@ -33,6 +33,7 @@ ShopKart | Online Shopping
                    <h5 class="my-2 text-primary">Offer Price : Rs.{{products.selling_price}}</h5>
                    <div class="my-3">
                       {% if products.quantity > 0 %}
+                      <input type="hidden" value="{{products.id}}" id="pid">
                       <p>
                         <div class="input-group" style="width:150px">
                           <button class="input-group-text bg-success text-light" id="btnMinus" ><i class="fa fa-minus"></i></button>
@@ -40,7 +41,7 @@ ShopKart | Online Shopping
                           <button class="input-group-text bg-success text-light" id="btnPlus"><i class="fa fa-plus"></i></button>
                         </div>
                       </p>
-                      <button class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                      <button class="btn btn-danger" id="btnCart"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
                       {% else %}
                       <button class="btn btn-danger"><i class="fa fa-minus"></i>Out of Stock</button>
                       {% endif %}
