@@ -129,3 +129,5 @@ def logout_page(request):
     logout(request)
     messages.success(request,"Logged out Successfully")
   return redirect("/") 
+
+

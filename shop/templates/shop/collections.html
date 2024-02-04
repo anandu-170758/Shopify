@@ -21,16 +21,16 @@
           <h4 class="mb-3">Categories</h4>
           <hr style="border-color:#b8bfc2;">
           {% include 'shop/inc/message.html' %}
-         </div>
-           {% for item in category %}
-           
-           <div class="col-md-4 col-lg-3 mb-4">
-            <!-- card -->
-            <div class="card border-light" style="width: 100%; aspect-ratio: 1 1;">
-                <img src="{{ item.image.url }}" alt="Categories" class="card-img-top img-fluid" style="object-fit: cover; height: 100%;">
-                <div class="card-footer border-top border-light p-4">
-                    <a href="{% url 'collections' item.name %}" class="h5">{{ item.name }}</a>
-                    <div class="mt-2" style="font-family: 'Poppins', 'Lato', 'Arvo', 'Raleway', sans-serif;">{{ item.description }}</div>                </div>
+        </div>
+        {% for item in category %}
+        <div class="col-md-4 col-lg-3">
+          <div class="card my-3">
+            <img src="{{item.image.url}}"  class="card-image-top" alt="Categories">
+            <a href="{%url 'collections' item.name %}">
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ item.name }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+    
             </div>
             <!-- / card -->
         </div>
