@@ -130,4 +130,5 @@ def logout_page(request):
     messages.success(request,"Logged out Successfully")
   return redirect("/") 
 
-
+def meow(request):
+  return render(request,"shop\meow.html")
